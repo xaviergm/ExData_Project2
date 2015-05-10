@@ -1,0 +1,12 @@
+library(dplyr)
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+Baltimore <- filter(NEI, fips == 24510)
+Baltimore_grouped <- group_by(Baltimore,year)
+Baltimore_summarized <- summarize(Baltimore_grouped,
+        emissions = sum(Emissions, na.rm = TRUE))
+Baltimore_model <- lm(emissions ~ year, Baltimore_summarized)
+png(filename="plot2.png")
+with(Baltimore_summarized, plot(year, emissions))
+abline(Baltimore_model, lwd=2)
+dev.off()
