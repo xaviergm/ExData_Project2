@@ -7,7 +7,7 @@ motorEmissionsBalLASummarized <- NEI %>%
         filter(SCC %in% motorRelatedSCC,
                (fips == "24510" | fips == "06037")) %>%
         group_by(year, fips) %>% summarize(Emissions = sum(Emissions))
-png("plot6.png")
+png("plot6.png",width=800,height=320)
 plot6 <- qplot(year,Emissions,data=motorEmissionsBalLASummarized, 
         facets=.~fips, geom=c("point","smooth"),method="lm")
 print(plot6)
