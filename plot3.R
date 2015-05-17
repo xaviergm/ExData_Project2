@@ -2,7 +2,7 @@
 ## plot1.R
 ## Ref: exdata-014
 ## Student: Xavier Gutierrez
-## Packages requried: dplyr
+## Packages requried: dplyr, ggplot2
 
 # Loading dplyr and ggplot2 packages
 library(dplyr)
@@ -13,7 +13,7 @@ setwd("C:/00-GUTIERRX/Git/user/exploratorydataanalysis2")
 
 # Downloading the required files to the local working directory
 fileURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip"
-download.file(fileUrl,"./exdata-dada-NEI_data.zip",method="internal",mode="wb")
+download.file(fileURL,"./exdata-dada-NEI_data.zip",method="internal",mode="wb")
 
 # Unzip the required file
 unzip("./exdata-dada-NEI_data.zip")
